@@ -10,7 +10,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - uses: actions/setup-python@v4
       with:
         python-version: '3.13'
@@ -21,7 +21,7 @@ jobs:
         pip install -r requirements.txt 
     - name: Run Notebooks
       env:
-        GH_TOKEN:  ${{ secrets.ORG_REPO_TOKEN }}
+        GH_TOKEN:  ${{ secrets.GITHUB_TOKEN }}
       run: |
  
         wget https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-{2002..2023}.json.zip 
